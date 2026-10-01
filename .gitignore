@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+vendor/
+venv/
+.venv/
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.development
+.env.staging
+.npmrc
+.pypirc
+
+# Python
+__pycache__/
+*.pyc
+
+# Build folders
+dist/
+build/
+.next/
+.cache/
+coverage/
+
+# Editor
+.idea/
+.vscode/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Keys and private files
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+wallet.json
+seed.txt
+seedphrase.txt
+mnemonic.txt
+password.txt
+passwords.txt
+credentials.json
+service-account.json
+firebase-adminsdk.json
+google-services.json
+
+# Large files
+*.csv
+*.xlsx
+*.xls
+*.zip
+*.rar
+*.7z
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.psd
+*.ai
+*.sqlite
+*.db
+*.pkl
+*.h5
