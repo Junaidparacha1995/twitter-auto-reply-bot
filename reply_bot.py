@@ -20,7 +20,7 @@ auth = OAuth1(
 # ===============================
 # Claude Setup
 # ===============================
-anthropic = Anthropic(api_key=REDACTED_SECRET
+anthropic = Anthropic(api_key=os.getenv("CLAUDE_API_KEY"))
 
 X_USER_ID = os.getenv("X_USER_ID")
 
@@ -62,7 +62,7 @@ def generate_reply(user_message):
 
     response = anthropic.messages.create(
         model="claude-3-5-sonnet-20241022",
-        max_tokens=REDACTED_SECRET
+        max_tokens=500,
         messages=[{
             "role": "user",
             "content": f"""

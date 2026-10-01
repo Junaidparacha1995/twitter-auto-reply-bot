@@ -1,0 +1,5 @@
+anthropic
+python-dotenv
+python-telegram-bot
+requests
+requests-oauthlib

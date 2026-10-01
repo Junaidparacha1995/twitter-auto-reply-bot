@@ -5,10 +5,10 @@ from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTyp
 from anthropic import Anthropic
 
 # ===== CONFIG =====
-TELEGRAM_REDACTED_SECRET_ASSIGNMENT =REDACTED_SECRET
-CLAUDE_REDACTED_SECRET_ASSIGNMENT =REDACTED_SECRET
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+CLAUDE_API_KEY = os.getenv("CLAUDE_API_KEY")
 
-client = Anthropic(api_key=REDACTED_SECRET
+client = Anthropic(api_key=CLAUDE_API_KEY)
 
 # Track warnings
 user_warnings = {}
@@ -36,7 +36,7 @@ Message:
 
     response = client.messages.create(
         model="claude-3-5-sonnet-20240620",
-        max_tokens=REDACTED_SECRET
+        max_tokens=300,
         messages=[{"role": "user", "content": prompt}]
     )
 
@@ -62,7 +62,7 @@ User question:
 
     response = client.messages.create(
         model="claude-3-5-sonnet-20240620",
-        max_tokens=REDACTED_SECRET
+        max_tokens=300,
         messages=[{"role": "user", "content": prompt}]
     )
 

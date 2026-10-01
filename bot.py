@@ -11,12 +11,12 @@ from anthropic import Anthropic
 # ================= LOAD ENV =================
 load_dotenv()
 
-X_USER_ID = os.getenv("X_USER_ID").strip()
+X_USER_ID = (os.getenv("X_USER_ID") or "").strip()
 CONSUMER_KEY = os.getenv("CONSUMER_KEY")
-CONSUMER_SECRET =REDACTED_SECRET
-ACCESS_TOKEN =REDACTED_SECRET
-ACCESS_SECRET =REDACTED_SECRET
-CLAUDE_API_KEY =REDACTED_SECRET
+CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+ACCESS_SECRET = os.getenv("ACCESS_SECRET")
+CLAUDE_API_KEY = os.getenv("CLAUDE_API_KEY")
 
 COIN_NAME = os.getenv("COIN_NAME")
 WEBSITE = os.getenv("WEBSITE")
@@ -30,7 +30,7 @@ auth = OAuth1(
     ACCESS_SECRET
 )
 
-client = Anthropic(api_key=REDACTED_SECRET
+client = Anthropic(api_key=CLAUDE_API_KEY)
 
 # ================= LOGGING =================
 logging.basicConfig(
@@ -126,7 +126,7 @@ Keep it under 60 words.
 """
         response = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=REDACTED_SECRET
+            max_tokens=300,
             messages=[{"role": "user", "content": prompt}]
         )
         return response.content[0].text.strip()
@@ -160,7 +160,7 @@ User question:
 """
         response = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=REDACTED_SECRET
+            max_tokens=300,
             messages=[{"role": "user", "content": prompt}]
         )
         return response.content[0].text.strip()
